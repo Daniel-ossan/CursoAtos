@@ -1,0 +1,56 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="pt-BR">
+
+<head>
+<title>Projeto Auditório</title>
+
+
+  <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8" />
+</head>
+<body>
+<nav>
+		<div class="nav-wrapper">
+			<a href="#" class="brand-logo"><img src="/images/ufes.png"></a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+			</ul>
+		</div>
+	</nav>
+	
+
+	<div class = "container">
+		<h2>Alterar informações do evento:</h2>
+		<h3>
+			<a href="/eventos">Voltar: </a>
+		</h3>
+	</div>
+	<br>
+	<br>
+	<br>
+	<form method="post" class="container" th:object="${evento}">
+		<div class="row">
+		<div class="input-field col s4">
+				Nome: <input type="text" th:field="*{nome}" name="nome" />
+			</div>
+			<div class="input-field col s3">
+				Local: <input type="text" th:field="*{local}" name="local" />
+			</div>
+			<div class="input-field col s3">
+				Data: <input type="date" th:field="*{data}" name="data" />
+			</div>
+
+			<div class="input-field col s2">
+				Horario: <input type="time" th:field="*{horario}" name="horario" />
+			</div>
+		</div>
+		<a
+			th:href="${(#mvc.url('EC#alterarEventoPost').arg(0, evento)).build()}"><button type="submit">Salvar</button></a>
+	</form>
+
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
